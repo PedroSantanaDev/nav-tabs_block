@@ -1,4 +1,39 @@
 <?php  defined("C5_EXECUTE") or die("Access Denied."); ?>
+
+
+<ul class="nav nav-tabs">
+
+  <?php  if (isset($fieldOne) && trim($fieldOne) != "") { ?>  
+  <li class="nav-item">
+    <a class="nav-link active" href="#"><?php  echo h($fieldOne); ?></a>
+  </li>
+  <?php  } ?>
+
+  <?php  if (isset($fieldTwo) && trim($fieldTwo) != "") { ?>
+  <li class="nav-item">
+    <a class="nav-link" href="#"><?php  echo h($fieldTwo); ?></a>
+  </li>
+  <?php  } ?>
+
+  <?php  if (isset($fieldThree) && trim($fieldThree) != "") { ?>
+  <li class="nav-item">
+    <a class="nav-link" href="#"><?php  echo h($fieldThree); ?></a>
+  </li>
+  <?php  } ?>
+  <?php  if (isset($fieldFour) && trim($fieldFour) != "") { ?>
+  <li class="nav-item">
+    <a class="nav-link" href="#"><?php  echo h($fieldFour); ?></a>
+  </li>
+  <?php  } ?>
+  <?php  if (isset($fieldFive) && trim($fieldFive) != "") { ?>
+  <li class="nav-item">
+    <a class="nav-link" href="#"><?php  echo h($fieldFive); ?></a>
+  </li>
+  <?php  } ?>
+</ul>
+
+
+
 <?php  if (isset($fieldOne) && trim($fieldOne) != "") { ?>
     <?php  echo h($fieldOne); ?><?php  } ?>
 <?php  if (isset($fieldOneContent) && trim($fieldOneContent) != "") { ?>
