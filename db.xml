@@ -1,0 +1,19 @@
+<?php xml version="1.0"?>
+<schema version="0.3">
+    <table name="btNavTabsBlock">
+        <field name="bID" type="I">
+            <key/>
+            <unsigned/>
+        </field>
+        <field name="fieldOne" type="C" size="255"></field>
+        <field name="fieldOneContent" type="X2"></field>
+        <field name="fieldTwo" type="C" size="255"></field>
+        <field name="fieldTwoContent" type="X2"></field>
+        <field name="fieldThree" type="C" size="255"></field>
+        <field name="fieldThreeContent" type="X2"></field>
+        <field name="fieldFour" type="C" size="255"></field>
+        <field name="fieldFourContent" type="X2"></field>
+        <field name="fieldFive" type="C" size="255"></field>
+        <field name="fieldFiveContent" type="X2"></field>
+    </table>
+</schema>
