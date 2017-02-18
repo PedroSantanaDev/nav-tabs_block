@@ -22,17 +22,24 @@ class Controller extends BlockController
     protected $btCacheBlockOutputForRegisteredUsers = true;
     protected $btCacheBlockOutputLifetime = 0;
     protected $pkg = false;
-    
+    /*
+    *C5 Block description
+    */
     public function getBlockTypeDescription()
     {
         return t("Bootstrap Navigation Tabs C5 Block. ");
     }
-
+    /*
+    *C5 Block Name
+    */
     public function getBlockTypeName()
     {
         return t("Nav Tabs Block");
     }
 
+    /*
+    *Content available on site search
+    */
     public function getSearchableContent()
     {
         $content = array();
@@ -48,7 +55,9 @@ class Controller extends BlockController
         $content[] = $this->fieldFiveContent;
         return implode(" ", $content);
     }
-
+    /*
+    *Sets variables for use view.php file
+    */
     public function view()
     {
         $this->set('fieldOneContent', LinkAbstractor::translateFrom($this->fieldOneContent));
@@ -58,11 +67,16 @@ class Controller extends BlockController
         $this->set('fieldFiveContent', LinkAbstractor::translateFrom($this->fieldFiveContent));
     }
 
+    /*
+    *Calls addEdit()
+    */
     public function add()
     {
         $this->addEdit();
     }
-
+    /*
+    *Sets variables from db for user to edit content.
+    */
     public function edit()
     {
         $this->addEdit();
@@ -77,7 +91,9 @@ class Controller extends BlockController
         
         $this->set('fieldFiveContent', LinkAbstractor::translateFromEditMode($this->fieldFiveContent));
     }
-
+    /*
+    *Loads assets and sets variables
+    */
     protected function addEdit()
     {
         $this->requireAsset('redactor');
@@ -85,7 +101,9 @@ class Controller extends BlockController
         $this->set('btFieldsRequired', $this->btFieldsRequired);
         $this->set('identifier_getString', Core::make('helper/validation/identifier')->getString(18));
     }
-
+    /*
+    *Saves data
+    */
     public function save($args)
     {
         $args['fieldOneContent'] = LinkAbstractor::translateTo($args['fieldOneContent']);
@@ -95,10 +113,12 @@ class Controller extends BlockController
         $args['fieldFiveContent'] = LinkAbstractor::translateTo($args['fieldFiveContent']);
         parent::save($args);
     }
-
+    /*
+    *Validates fields
+    */
     public function validate($args)
     {
-        $e = Core::make("helper/validation/error");
+        $e = Core::make("helper/validation/error"); //Gets C5 validation helper
         if (in_array("fieldOne", $this->btFieldsRequired) && (trim($args["fieldOne"]) == "")) {
             $e->add(t("The %s field is required.", t("Field #1 Title")));
         }
